@@ -1,0 +1,172 @@
+$color-background: #f9f9f9;
+$color-primary: #171392;
+$color-secondary: #df2b7c;
+$color-body:  #252450;
+$color-gray: #5e5d6b;
+$buttonColor: #4ECDC4;
+$hoverColorMain: #2CA09A;
+$buttonColorDelete: #FF6B6B;
+
+@mixin spaceItems($justifyContent) {
+    display: flex;
+    align-items: center;
+    justify-content: $justifyContent;
+}
+
+@mixin button($backgroundColor, $width) {
+    border: none;
+	padding: 5px;
+	cursor: pointer;
+	outline: inherit;
+    background-color: $backgroundColor;
+    &:hover {
+        background-color: transparent;
+        border: 1px $backgroundColor solid;
+        color: $backgroundColor;
+    }
+    color: white;
+    border-radius: 5px;
+    width: $width;
+}
+
+@mixin wrapper {
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+}
+
+@mixin outline-wrapper {
+        border-radius: 10px;
+        padding: 5px;
+        border: 1px solid scale-color($color-gray, $lightness: 50%);
+        background-color: transparent;
+        box-shadow: none;
+}
+
+header {
+    background-color: $color-primary;
+    height: 20vh;
+    @include spaceItems(center);
+    h1 {
+        color: white;
+    }
+}
+.main-section {
+    margin: 5% 10%;
+}
+
+.submit-todo-wrapper{
+    @include spaceItems(space-between);
+    flex-direction: row;
+    .input-button{
+        @include button($color-primary, 10%);
+        margin-top: 10px;
+        align-self: center;
+    }
+    margin: 15px 0;
+}
+
+.text-input-box {
+    padding: 5px;
+    width: 85%;
+    border-radius: 5px;
+    border: 1px solid scale-color($color-gray, $lightness: 50%);
+}
+.todo-list-wrapper {
+    @include wrapper()
+}
+.todo-list-buttongroup {
+    @include spaceItems(space-between)
+}
+.filter-button {
+    @include button($color-primary, 25%)
+}
+
+.item-container {
+    @include outline-wrapper();
+    flex-direction: row;
+    @include spaceItems(space-between);
+    margin-top: 15px;
+}
+.icon {
+    margin-right: 10px;
+    color: #252450;
+}
+
+footer {
+    @include spaceItems(center)
+}
+
+.delete-button {
+    @include button($color-secondary, 20%);
+    margin-right: 10px;
+}
+
+.delete-button-wrapper {
+    @include spaceItems(center)
+}
+
+h2 {
+    padding: 10px;
+    margin: 0;
+    color: $color-body;
+}
+
+.modal-background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-container {
+    width: 50vw;
+    height: 20vhx;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: #000 0px 1px 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    .title {
+        display: inline-block;
+        text-align: center;
+        margin-top: 10px;
+    };
+    .body {
+        flex: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7rem;
+        text-align: center;
+    };
+    .footer {
+        flex: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    };
+    button {
+    @include button($color-primary,25% );
+    margin: 10px;
+    };
+  }
+  
+  .title-close-btn {
+    display: flex;
+    justify-content: flex-end;
+    button {
+        @include button($color-secondary,5%)
+      };
+  }
+  
+  #cancel-btn {
+    @include button($color-secondary, 25% );
+  }

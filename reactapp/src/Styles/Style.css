@@ -1,0 +1,319 @@
+header {
+  background-color: #171392;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header h1 {
+  color: white;
+}
+
+.main-section {
+  margin: 5% 10%;
+}
+
+.submit-todo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 15px 0;
+}
+
+.submit-todo-wrapper .input-button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #171392;
+  color: white;
+  border-radius: 5px;
+  width: 10%;
+  margin-top: 10px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.submit-todo-wrapper .input-button:hover {
+  background-color: transparent;
+  border: 1px #171392 solid;
+  color: #171392;
+}
+
+.text-input-box {
+  padding: 5px;
+  width: 85%;
+  border-radius: 5px;
+  border: 1px solid #adacb7;
+}
+
+.todo-list-wrapper {
+  border-radius: 10px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+}
+
+.todo-list-buttongroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.filter-button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #171392;
+  color: white;
+  border-radius: 5px;
+  width: 25%;
+}
+
+.filter-button:hover {
+  background-color: transparent;
+  border: 1px #171392 solid;
+  color: #171392;
+}
+
+.item-container {
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid #adacb7;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 15px;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #252450;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.delete-button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #df2b7c;
+  color: white;
+  border-radius: 5px;
+  width: 20%;
+  margin-right: 10px;
+}
+
+.delete-button:hover {
+  background-color: transparent;
+  border: 1px #df2b7c solid;
+  color: #df2b7c;
+}
+
+.delete-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+h2 {
+  padding: 10px;
+  margin: 0;
+  color: #252450;
+}
+
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container {
+  width: 50vw;
+  height: 20vhx;
+  border-radius: 12px;
+  background-color: white;
+  -webkit-box-shadow: #000 0px 1px 5px;
+          box-shadow: #000 0px 1px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 25px;
+}
+
+.modal-container .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-container .body {
+  -webkit-box-flex: 50%;
+      -ms-flex: 50%;
+          flex: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modal-container .footer {
+  -webkit-box-flex: 20%;
+      -ms-flex: 20%;
+          flex: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-container button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #171392;
+  color: white;
+  border-radius: 5px;
+  width: 25%;
+  margin: 10px;
+}
+
+.modal-container button:hover {
+  background-color: transparent;
+  border: 1px #171392 solid;
+  color: #171392;
+}
+
+.title-close-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.title-close-btn button {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #df2b7c;
+  color: white;
+  border-radius: 5px;
+  width: 5%;
+}
+
+.title-close-btn button:hover {
+  background-color: transparent;
+  border: 1px #df2b7c solid;
+  color: #df2b7c;
+}
+
+#cancel-btn {
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #df2b7c;
+  color: white;
+  border-radius: 5px;
+  width: 25%;
+}
+
+#cancel-btn:hover {
+  background-color: transparent;
+  border: 1px #df2b7c solid;
+  color: #df2b7c;
+}
+/*# sourceMappingURL=Style.css.map */
