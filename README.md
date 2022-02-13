@@ -3,6 +3,7 @@
 ## To launch backend:
 
 - [ ] navigate to `backend` folder within the repository 
+- [ ] `npm install`
 - [ ] `npm start` to launch strapi
 
 Login credentials for strapi:
@@ -12,6 +13,7 @@ Login credentials for strapi:
 ## To launch front-end 
 
 - [ ] navigate to `reactapp` folder within the repository
+- [ ] `npm install`
 - [ ] `npm start` to launch app in browser
 
 
