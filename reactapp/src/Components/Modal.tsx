@@ -16,16 +16,16 @@ const Modal: React.FC<Props> = ({ setEdit, setModalOpen }) => {
   return (
     <div className="modal-background">
       <div className="modal-container">
-        <div className="title-close-btn">
-          <button
+        <div className="title-container">
+        <p>Update todo</p>
+        <button
             onClick={() => {
               setModalOpen(false);
             }}
           >
             X
-          </button>
+        </button>
         </div>
-        <p>Update todo</p>
         <input
           placeholder={todoReducer.attributes.description}
           onChange={(e) => setModalText(e.target.value)}

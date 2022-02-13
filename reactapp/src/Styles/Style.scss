@@ -64,8 +64,6 @@ header {
     flex-direction: row;
     .input-button{
         @include button($color-primary, 10%);
-        margin-top: 10px;
-        align-self: center;
     }
     margin: 15px 0;
 }
@@ -107,7 +105,8 @@ footer {
 }
 
 .delete-button-wrapper {
-    @include spaceItems(center)
+    @include spaceItems(center);
+    padding-top: 10px;
 }
 
 h2 {
@@ -155,15 +154,19 @@ h2 {
     };
     button {
     @include button($color-primary,25% );
-    margin: 10px;
+    margin: 20px 10px 0px 0px;
     };
   }
   
-  .title-close-btn {
+  .title-container {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: center;
     button {
-        @include button($color-secondary,5%)
+        @include button($color-secondary,5%);
+        position: absolute;
+        top: 9.5em;
+        right: 20em;
       };
   }
   

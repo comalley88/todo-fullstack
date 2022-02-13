@@ -46,10 +46,6 @@ header h1 {
   color: white;
   border-radius: 5px;
   width: 10%;
-  margin-top: 10px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
 }
 
 .submit-todo-wrapper .input-button:hover {
@@ -178,6 +174,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 10px;
 }
 
 h2 {
@@ -265,7 +262,7 @@ h2 {
   color: white;
   border-radius: 5px;
   width: 25%;
-  margin: 10px;
+  margin: 20px 10px 0px 0px;
 }
 
 .modal-container button:hover {
@@ -274,16 +271,20 @@ h2 {
   color: #171392;
 }
 
-.title-close-btn {
+.title-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.title-close-btn button {
+.title-container button {
   border: none;
   padding: 5px;
   cursor: pointer;
@@ -292,9 +293,12 @@ h2 {
   color: white;
   border-radius: 5px;
   width: 5%;
+  position: absolute;
+  top: 9.5em;
+  right: 20em;
 }
 
-.title-close-btn button:hover {
+.title-container button:hover {
   background-color: transparent;
   border: 1px #df2b7c solid;
   color: #df2b7c;

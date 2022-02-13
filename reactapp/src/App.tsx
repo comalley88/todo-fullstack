@@ -13,36 +13,29 @@ const url = 'http://localhost:1337/api/todos'
 
 function App() {
 
-  const [listTodo, setlistTodo] = useState<Todo[] | null>(null)
+  const [listTodo, setlistTodo] = useState<Todo[] | undefined>(undefined)
   const [filter, setFilter] = useState('')
-  const [error, setError] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | undefined>(undefined)
   const [reload, setReload] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
 
-
-
-  // reload API each time an item is added
-
+// on initialise 
+  
   useEffect(() => {
-    setLoading(true)
     const fetchData = async () => {
       try {
         const rawResponse = await fetch(url)
         const response = await rawResponse.json()
         setlistTodo(response.data)
-        setLoading(false)
       } catch (error: any) {
         setError(error)
-        setLoading(true)
       }
 
     }
     fetchData()
   }, [reload]);
 
-useEffect(() => {
-    setLoading(true)
+  useEffect(() => {
     const fetchData = async () => {
       try {
         const rawResponse = await fetch(url)
@@ -50,28 +43,26 @@ useEffect(() => {
         if (filter === 'Completed') {
           let filteredList = response?.data?.filter((item: { attributes: { completed: boolean; }; }) => item.attributes.completed)
           setlistTodo([...filteredList])
+
         } else if (filter === 'Outstanding') {
           let filteredList = response?.data?.filter((item: { attributes: { completed: boolean; }; }) => item.attributes.completed === false)
           setlistTodo([...filteredList])
         } else if (filter === 'All') {
           setlistTodo(response.data)
         }
-        setLoading(false)
       } catch (error: any) {
         setError(error)
-        setLoading(true)
       }
 
     }
     fetchData()
   }, [filter]);
 
-  // submit new toDo
+// to submit new toDo
 
   const handleSubmit = async (text: string) => {
     const postInfo = { description: text, completed: false }
 
-    setLoading(true);
     const options = {
       method: 'POST',
       headers: {
@@ -81,18 +72,14 @@ useEffect(() => {
     };
     try {
       await fetch('http://localhost:1337/api/todos', options);
-      setLoading(false)
     } catch (error: any) {
       setError(error)
-      setLoading(false)
     }
     setReload(!reload)
   }
-
-  // click to complete 
+// to toggle todo item complete: true/ false
   const toggleTodo = async (todo: Todo) => {
     const update = { completed: !todo.attributes.completed }
-    setLoading(true)
     const options = {
       method: 'PUT',
       headers: {
@@ -104,17 +91,14 @@ useEffect(() => {
       const rawResponse = await fetch(`http://localhost:1337/api/todos/${todo.id}`, options);
       const response = await rawResponse.json()
       console.log('updated item is', response)
-      setLoading(false)
     } catch (error: any) {
       setError(error)
-      setLoading(false)
     }
     setReload(!reload)
   }
 
-
+// to edit list item description
   const clickEdit = async (Modaltext: string, todo: Todo) => {
-    setLoading(true)
     const update = { description: Modaltext }
     const options = {
       method: 'PUT',
@@ -127,12 +111,11 @@ useEffect(() => {
       await fetch(`http://localhost:1337/api/todos/${todo.id}`, options);
     } catch (error: any) {
       setError(error)
-      setLoading(false)
     }
     setReload(!reload)
     setModalOpen(false)
   }
-
+// to delete single todo list item
   const clickDelete = async (todo: Todo) => {
 
     await fetch(`http://localhost:1337/api/todos/${todo.id}`, {
@@ -140,33 +123,35 @@ useEffect(() => {
     })
     setReload(!reload)
   }
+// to delete 'all to do' or 'all tasks'
+  const clickBulkDelete = async (option: string) => {
 
-  const clickBulkDelete = (option: string) => {
-
-    let deleteTodos: any[] | undefined = []
-
+    let filteredList: any = []
     if (option === 'Delete done tasks') {
-      deleteTodos = listTodo?.filter(todo => todo.attributes.completed) 
-      deleteTodos = deleteTodos?.map(todo => todo.id)
-      console.log('delete todos are',deleteTodos)
+      filteredList = listTodo?.filter(todo => todo.attributes.completed).map(todo => todo.id)
+      console.log('delete todos are', filteredList)
     }
-     else if (option === 'Delete all tasks') {
-      deleteTodos = listTodo?.map(todo => todo.id)
+    else if (option === 'Delete all tasks') {
+      filteredList = listTodo?.map(todo => todo.id)
+      console.log('delete todos are', filteredList)
     }
 
-    deleteTodos?.forEach(async todo => await fetch(`http://localhost:1337/api/todos/${todo}`, {
-      method: 'DELETE'
-    }))
+    for (let i = 0; i < filteredList.length; i++) {
+      await fetch(`http://localhost:1337/api/todos/${filteredList[i]}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: null
+      })
+    }
+
     setReload(!reload)
-  }
-
-
-  if (loading) {
-    <p>loading...</p>
   }
 
   return (
     <div className="App">
+      {error && <div>error: {error}</div>}
       {modalOpen && <Modal setEdit={clickEdit} setModalOpen={setModalOpen} />}
       <header>
         <h1>Todo</h1>
@@ -174,7 +159,7 @@ useEffect(() => {
       <div className='main-section'>
         <div className='todo-list-wrapper'>
           <div className='title-wrapper'>
-          <h2>Todo List</h2>
+            <h2>Todo List</h2>
           </div>
           <SubmitTodo handleSubmit={handleSubmit} />
           <FilterButton setFilter={setFilter} />
