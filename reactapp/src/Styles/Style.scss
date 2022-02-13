@@ -3,16 +3,12 @@ $color-primary: #171392;
 $color-secondary: #df2b7c;
 $color-body:  #252450;
 $color-gray: #5e5d6b;
-$buttonColor: #4ECDC4;
-$hoverColorMain: #2CA09A;
-$buttonColorDelete: #FF6B6B;
 
 @mixin spaceItems($justifyContent) {
     display: flex;
     align-items: center;
     justify-content: $justifyContent;
 }
-
 @mixin button($backgroundColor, $width) {
     border: none;
 	padding: 5px;
@@ -28,7 +24,6 @@ $buttonColorDelete: #FF6B6B;
     border-radius: 5px;
     width: $width;
 }
-
 @mixin wrapper {
     border-radius: 10px;
     padding: 10px;
@@ -38,7 +33,6 @@ $buttonColorDelete: #FF6B6B;
     background-color: #fff;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 }
-
 @mixin outline-wrapper {
         border-radius: 10px;
         padding: 5px;
@@ -46,7 +40,6 @@ $buttonColorDelete: #FF6B6B;
         background-color: transparent;
         box-shadow: none;
 }
-
 header {
     background-color: $color-primary;
     height: 20vh;
@@ -58,7 +51,6 @@ header {
 .main-section {
     margin: 5% 10%;
 }
-
 .submit-todo-wrapper{
     @include spaceItems(space-between);
     flex-direction: row;
@@ -67,7 +59,6 @@ header {
     }
     margin: 15px 0;
 }
-
 .text-input-box {
     padding: 5px;
     width: 85%;
@@ -83,7 +74,6 @@ header {
 .filter-button {
     @include button($color-primary, 25%)
 }
-
 .item-container {
     @include outline-wrapper();
     flex-direction: row;
@@ -94,27 +84,22 @@ header {
     margin-right: 10px;
     color: #252450;
 }
-
 footer {
     @include spaceItems(center)
 }
-
 .delete-button {
     @include button($color-secondary, 20%);
     margin-right: 10px;
 }
-
 .delete-button-wrapper {
     @include spaceItems(center);
     padding-top: 10px;
 }
-
 h2 {
     padding: 10px;
     margin: 0;
     color: $color-body;
 }
-
 .modal-background {
     width: 100vw;
     height: 100vh;
@@ -123,8 +108,7 @@ h2 {
     justify-content: center;
     align-items: center;
   }
-  
-  .modal-container {
+.modal-container {
     width: 50vw;
     height: 20vhx;
     border-radius: 12px;
@@ -133,19 +117,6 @@ h2 {
     display: flex;
     flex-direction: column;
     padding: 25px;
-    .title {
-        display: inline-block;
-        text-align: center;
-        margin-top: 10px;
-    };
-    .body {
-        flex: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.7rem;
-        text-align: center;
-    };
     .footer {
         flex: 20%;
         display: flex;
@@ -157,19 +128,15 @@ h2 {
     margin: 20px 10px 0px 0px;
     };
   }
-  
   .title-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    button {
-        @include button($color-secondary,5%);
-        position: absolute;
-        top: 9.5em;
-        right: 20em;
-      };
   }
-  
+  #cancel-btn-corner {
+    @include button($color-secondary, 5% );
+    align-self: flex-end;
+  }
   #cancel-btn {
     @include button($color-secondary, 25% );
   }

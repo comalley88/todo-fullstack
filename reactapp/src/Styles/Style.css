@@ -215,29 +215,6 @@ h2 {
   padding: 25px;
 }
 
-.modal-container .title {
-  display: inline-block;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.modal-container .body {
-  -webkit-box-flex: 50%;
-      -ms-flex: 50%;
-          flex: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.7rem;
-  text-align: center;
-}
-
 .modal-container .footer {
   -webkit-box-flex: 20%;
       -ms-flex: 20%;
@@ -284,7 +261,7 @@ h2 {
           justify-content: center;
 }
 
-.title-container button {
+#cancel-btn-corner {
   border: none;
   padding: 5px;
   cursor: pointer;
@@ -293,12 +270,11 @@ h2 {
   color: white;
   border-radius: 5px;
   width: 5%;
-  position: absolute;
-  top: 9.5em;
-  right: 20em;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
-.title-container button:hover {
+#cancel-btn-corner:hover {
   background-color: transparent;
   border: 1px #df2b7c solid;
   color: #df2b7c;
