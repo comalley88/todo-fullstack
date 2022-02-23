@@ -6,6 +6,7 @@ import { FilterButton } from './Components/Button'
 import Modal from './Components/Modal'
 import SubmitTodo from './Components/SubmitTodo';
 import { DeleteButton } from './Components/Button';
+import { usePromiseTracker } from "react-promise-tracker";
 
 
 const url = 'http://localhost:1337/api/todos'
@@ -18,6 +19,9 @@ function App() {
   const [error, setError] = useState<string | undefined>(undefined)
   const [reload, setReload] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
+
+// track promises
+  const { promiseInProgress } = usePromiseTracker();
 
 // on initialise 
   

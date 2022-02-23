@@ -5,10 +5,12 @@ import App from './App'
 import { store } from './app/store'
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals';
+import Spinner from './Components/Spinner'
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
+    <Spinner color='#df2b7c'/>
   </Provider>,
   document.getElementById('root')
 )
